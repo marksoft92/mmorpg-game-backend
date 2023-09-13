@@ -1,5 +1,5 @@
 // server/controllers/characterController.js
-import Character from '../models/character';
+import Character from '../models/character.js';
 
 // Funkcja do aktualizacji danych postaci
 const updateCharacter = async (characterId, newData) => {
