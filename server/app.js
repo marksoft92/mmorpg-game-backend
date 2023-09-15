@@ -3,9 +3,9 @@ import express from 'express';
 import http from 'http';
 //import socketIo from 'socket.io';
 import { Server as socketIo } from 'socket.io';
-
+import {setupCharacterWebSocket} from './socketController/socketCharacterController.js';
 import mongoose from 'mongoose';
-import { updateCharacter } from './controllers/characterController.js';
+
 const app = express();
 const server = http.createServer(app);
 const io = new socketIo(server);
@@ -33,36 +33,14 @@ server.listen(port, () => {
   console.log(`Serwer działa na porcie ${port}`);
 });
 
-// server/app.js (kontynuacja)
+
 io.on('connection', (socket) => {
     console.log('Nowe połączenie WebSocket');
-  
-
-
-
-    socket.on('updateCharacter', async (data) => {
-        console.log(data);
-        try {
-          // Przyjmujemy dane, które zawierają ID postaci i nowe dane
-          const { characterId, newData } = data;
-    
-          // Wywołujemy kontroler do aktualizacji danych postaci
-          const updatedCharacter = await updateCharacter(characterId, newData);
-    
-          // Wysyłamy zaktualizowane dane postaci do wszystkich klientów
-          io.emit('characterUpdated', updatedCharacter);
-        } catch (error) {
-          console.error('Błąd aktualizacji postaci:', error);
-        }
-      });
+    setupCharacterWebSocket(socket, io);
     
       socket.on('disconnect', () => {
         console.log('Rozłączenie WebSocket');
       });
-
-
-
-
 
 
     // Obsługa wydarzeń WebSocket
