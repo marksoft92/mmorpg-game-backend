@@ -25,7 +25,7 @@ mongoose.connection.on('error', (err) => {
   console.error('Błąd połączenia z MongoDB:', err);
 });
 
-// ... reszta konfiguracji Express ...
+
 
 // Rozpocznij serwer na określonym porcie
 const port =  3003;
@@ -50,5 +50,5 @@ io.on('connection', (socket) => {
     });
   });
   
-  // ... reszta konfiguracji Express ...
+
   
