@@ -12,7 +12,7 @@ const io = new socketIo(server);
 
 
 // Połącz się z bazą danych MongoDB
-mongoose.connect("mongodb+srv://<user>:<password>@rpg.colafm7.mongodb.net/", {
+mongoose.connect("mongodb+srv://<user>:<password>@rpg.colafm7.mongodb.net/players", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

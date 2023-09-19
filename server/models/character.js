@@ -2,6 +2,7 @@
 import mongoose from 'mongoose';
 
 const characterSchema = new mongoose.Schema({
+  _id: Number,
   class: String,
   level: Number,
   experience: Number,
@@ -12,6 +13,6 @@ const characterSchema = new mongoose.Schema({
   },
 });
 
-const Character = mongoose.model('Character', characterSchema);
+const Character = mongoose.model('Character', characterSchema, 'character');
 
 export default Character;
