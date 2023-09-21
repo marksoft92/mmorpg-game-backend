@@ -4,12 +4,16 @@ import mongoose from 'mongoose';
 const characterSchema = new mongoose.Schema({
   _id: Number,
   class: String,
+  name: String,
   level: Number,
   experience: Number,
   health: Number,
+  location: String,
   stats: {
     agility: Number,
     vitality: Number,
+    strength: Number,
+    energy: Number
   },
 });
 
