@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new socketIo(server);
 
-// Rozpocznij serwer na określonym porcie //
+// Rozpocznij serwer na określonym porcie 
 const port =  3003;
 server.listen(port, () => {
   console.log(`Serwer działa na porcie ${port}`);
