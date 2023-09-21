@@ -2,6 +2,7 @@ import express from 'express';
 import http from 'http';
 import { Server as socketIo } from 'socket.io';
 import {setupCharacterWebSocket} from './socketController/socketCharacterController.js';
+import './models/db.js';
 
 const app = express();
 const server = http.createServer(app);
