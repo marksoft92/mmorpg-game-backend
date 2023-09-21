@@ -27,4 +27,20 @@ const updateCharacter = async (characterId, newData) => {
   }
 };
 
-export { updateCharacter };
+// Dodaj funkcję do tworzenia nowej postaci
+const createCharacter = async (characterData) => {
+  try {
+    // Stwórz nową postać na podstawie przekazanych danych
+    const newCharacter = new Character(characterData);
+
+    // Zapisz nową postać w bazie danych
+    await newCharacter.save();
+
+    return newCharacter; // Zwróć nowo utworzoną postać
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { updateCharacter, createCharacter };
+
