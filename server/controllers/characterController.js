@@ -10,14 +10,18 @@ const updateCharacter = async (characterId, newData) => {
     if (!character) {
       throw new Error('Postać nie znaleziona');
     }
-
+  
     // Aktualizuj dane postaci na podstawie przekazanych danych
     character.level = newData.level;
     character.experience = newData.experience;
     character.health = newData.health;
+    character.location= newData.location
+    character.class= newData.class
+    character.name= newData.name
     character.stats.agility = newData.stats.agility;
     character.stats.vitality = newData.stats.vitality;
-
+    character.stats.strength = newData.stats.strength
+    character.stats.energy = newData.stats.energy
     // Zapisz zaktualizowaną postać
     await character.save();
 
