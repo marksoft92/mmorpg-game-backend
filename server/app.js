@@ -16,15 +16,13 @@ server.listen(port, () => {
 
 io.on('connection', (socket) => {
     console.log('Nowe połączenie WebSocket');
+
     setupCharacterWebSocket(socket, io);
     
-      socket.on('disconnect', () => {
-        console.log('Rozłączenie WebSocket');
-      });
+      // socket.on('disconnect', () => {
+      //   console.log('Rozłączenie WebSocket');
+      // });
 
-    socket.on('disconnect', () => {
-      console.log('Rozłączenie WebSocket');
-    });
   });
   
 
